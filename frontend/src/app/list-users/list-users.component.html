@@ -1,0 +1,14 @@
+<h1>The summary of the details selected by the user is:</h1>
+
+<p>
+Make:  {{summary?.Make}}, 
+Model:  {{summary?.Model}}, 
+Year:  {{summary?.Year}},
+Type:  {{summary?.Type}},
+Features:  {{summary?.Features}},
+PurchaseDate:  {{summary?.PurchaseDate.toString().substring(0,10)}}
+</p>
+<h2>
+  The discount the user gets is:{{(summary?.PurchaseDate.toString().substring(8,10))%2==0?40:30}}%
+</h2>
+

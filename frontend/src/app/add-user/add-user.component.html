@@ -1,0 +1,103 @@
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <div class="row justify-content-md-center">
+    <div [ngSwitch]="step">
+      <div *ngSwitchCase="1">
+        <div>
+          <h1 class="text-center">Personal Information</h1>
+          <form (ngSubmit)="moveToStep2(userObj)">
+            <div class="w3-container">
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Make:   </label>
+                <input type="text" class="form-control" name="Make" [(ngModel)]="userObject.Make" id="exampleFormControlInput1" placeholder="Enter the make details">
+              </div>
+            </div>
+            <div class="w3-container">
+              <div class="form-group">
+                <label for="exampleFormControlInput2">Model:   </label>&nbsp;&nbsp;
+                <select name="Model" [(ngModel)]="userObject.Model" id="exampleFormControlInput2">
+                        <option value="Civic">Civic</option>
+                        <option value="Oddyssey">Oddyssey</option>
+                        <option value="Pilot">Pilot</option>
+                        <option value="Accord">Accord</option>
+                    </select>
+              </div>
+            </div>
+  
+            <div class="w3-container">
+              <div class="form-group">
+                <label for="exampleFormControlInput3">Year:  </label>
+                <input type="Number" class="form-control" name="Year" [(ngModel)]="userObject.Year" id="exampleFormControlInput3" placeholder="Enter the year">
+              </div>
+            </div>
+            <div class="w3-container">
+              <div class="form-group">
+                <label for="exampleFormControlInput4">Type:  </label>
+  
+                <label class="radio-inline">
+                <input type="radio" name="Type" [(ngModel)]="userObject.Type" id="exampleFormControlInput4S" value="Sedan">&nbsp; Sedan</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="radio-inline">
+                <input type="radio" name="Type" [(ngModel)]="userObject.Type" id="exampleFormControlInput4C" value="Coupe"> &nbsp; Coupe</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
+            </div>
+  
+            <div class="w3-container">
+              <div class="col-xs-4 form-group">
+                <button class="btn btn-primary" type="submit">Next</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+  
+      <div *ngSwitchCase="2">
+        <div>
+          <h1 class="text-center">Booking Information</h1>
+          <br>
+          <form (ngSubmit)="submitForm(userObj)">
+  
+            <div class="w3-container">
+              <div class="form-group">
+                <label for="exampleFormControlInput5">Features</label>
+                <br>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="features" (change)="addFeatures('GPS')" id="inlineCheckbox1" value="option1">
+                  <label class="form-check-label" for="features">GPS</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="features" (change)="addFeatures('Security Lock')" id="inlineCheckbox2"
+                    value="option2">
+                  <label class="form-check-label" for="features">Security Lock</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="features" (change)="addFeatures('Cargo Mat')" id="inlineCheckbox3"
+                    value="option2">
+                  <label class="form-check-label" for="features">Cargo Mat</label>
+                </div>
+              </div>
+            </div>
+  
+  
+            <div class="w3-container">
+              <div class="form-group">
+                <label for="exampleFormControlInput6">Purchase Date</label>
+                <input type="date" class="form-control" name="sd" [(ngModel)]="userObject.PurchaseDate" id="exampleFormControlInput6">
+              </div>
+            </div>
+  
+  
+            <div class="w3-container">
+              <div class="form-group">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+  
+    </div>
+  </div>
